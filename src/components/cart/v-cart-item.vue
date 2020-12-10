@@ -1,6 +1,6 @@
 <template>
   <div class="v-cart-item">
-    <img class="v-cart-item__img" :src="require('../assets/images/' + cart_item_data.image)" alt="img">
+    <img class="v-cart-item__img" :src="require('../../assets/images/' + cart_item_data.image)" alt="img">
     <div class="cart-item__info">
       <p>{{cart_item_data.name}}</p>
       <p>{{cart_item_data.price}}</p>
@@ -43,7 +43,7 @@ name: "v-cart-item",
     }
   },
   mounted() {
-    this.$set(this.cart_item_data, 'quantity', 1)
+
   }
 }
 </script>
