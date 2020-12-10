@@ -5,7 +5,13 @@
       <p>{{cart_item_data.name}}</p>
       <p>{{cart_item_data.price}}</p>
       <p>{{cart_item_data.article}}</p>
-      <p>qty: {{cart_item_data.quantity}}</p>
+      <div class="v-cart-item__quantity">qty:
+        <span>
+          <span class="quantity_button" @click="incrementItem">+</span>
+          {{cart_item_data.quantity}}
+          <span class="quantity_button" @click="decrementItem">-</span>
+        </span>
+      </div>
     </div>
     <div class="v-cart-item__quantity">
       <button @click="deleteFromCart">Delete</button>
@@ -14,7 +20,6 @@
 </template>
 
 <script>
-
 
 export default {
 name: "v-cart-item",
@@ -27,6 +32,12 @@ name: "v-cart-item",
     }
   },
   methods: {
+    decrementItem(){
+      this.$emit('decrement')
+    },
+    incrementItem(){
+      this.$emit('increment')
+    },
     deleteFromCart() {
       this.$emit('deleteFromCart')
     }
@@ -49,6 +60,10 @@ name: "v-cart-item",
 
     &__img{
       max-width: 50px;
+    }
+
+    .quantity_button{
+      cursor: pointer;
     }
   }
 </style>
