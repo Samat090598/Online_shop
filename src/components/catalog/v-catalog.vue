@@ -10,6 +10,8 @@
       :selected="selected"
       :options="categories"
       @select="sortByCategories"
+      :isExpended="IS_DESKTOP"
+
     />
     <div class="v-catalog__list">
       <v-catalog-item
@@ -50,7 +52,8 @@ export default {
   computed: {
     ...mapGetters([
        'PRODUCTS',
-        'CART'
+        'CART',
+        'IS_DESKTOP'
     ]),
     filteredProducts() {
       if (this.sortedProducts.length) {
